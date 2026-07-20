@@ -160,22 +160,49 @@
   /* ---------- projects ---------- */
 
   .project {
-    display: block;
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1.25rem;
-    text-decoration: none;
-    color: inherit;
-    transition: border-color 0.15s ease, transform 0.15s ease;
+    transition: border-color 0.15s ease;
   }
-  .project:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .project:hover { border-color: var(--accent); }
 
   .project h3 {
     margin: 0 0 0.5rem;
     font-size: 1.2rem;
     font-weight: 600;
+  }
+
+  .project h3 a { color: inherit; text-decoration: none; }
+  .project h3 a:hover { color: var(--accent); text-decoration: underline; }
+
+  /* ---------- project figures ---------- */
+
+  .figure { margin: 0 0 1.1rem; }
+
+  .figure a {
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    transition: border-color 0.15s ease;
+  }
+  .figure a:hover { border-color: var(--accent); }
+
+  .figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .figure figcaption {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.5rem;
   }
 
   .project p {
@@ -365,8 +392,8 @@
 <section class="wrap" id="projects">
   <h2>Projects</h2>
 
-  <a class="project" href="https://github.com/Ethan-Chuang/CA-house-price-prediction">
-    <h3>California Home Price Prediction</h3>
+  <article class="project">
+    <h3><a href="https://github.com/Ethan-Chuang/CA-house-price-prediction">California Home Price Prediction</a></h3>
     <p>
       Predicts single-family home sale prices from roughly a year of California
       MLS sold-listing data. Heavy feature engineering — price per bedroom, lot
@@ -379,6 +406,16 @@
       under <strong>8%</strong> — half of predicted prices land within 8% of the
       true sale price.
     </p>
+    <figure class="figure">
+      <a href="img/ca-predicted-vs-actual.jpg">
+        <img src="img/ca-predicted-vs-actual.jpg" loading="lazy"
+             alt="Scatter plot of predicted versus actual home sale prices. Points cluster tightly along the perfect-prediction diagonal at lower prices and spread wider above roughly $4 million.">
+      </a>
+      <figcaption>
+        Predicted vs. actual sale price on the held-out test month. Spread widens
+        at the high end — expensive homes are genuinely harder to predict.
+      </figcaption>
+    </figure>
     <div class="tags">
       <span class="tag">Python</span>
       <span class="tag">scikit-learn</span>
@@ -386,10 +423,10 @@
       <span class="tag">LightGBM</span>
       <span class="tag">CatBoost</span>
     </div>
-  </a>
+  </article>
 
-  <a class="project" href="https://github.com/Ethan-Chuang/Medicare-Payment-Prediction">
-    <h3>Medicare Utilization Analysis</h3>
+  <article class="project">
+    <h3><a href="https://github.com/Ethan-Chuang/Medicare-Payment-Prediction">Medicare Utilization Analysis</a></h3>
     <p>
       Inferential machine learning on public CMS Medicare Current Beneficiary
       Survey data. Condenses ~577 raw survey columns into a single continuous
@@ -402,6 +439,17 @@
       and age</strong> — suggesting Medicare care strategies should be tailored
       by plan type rather than applied uniformly.
     </p>
+    <figure class="figure">
+      <a href="img/medicare-feature-rankings.png">
+        <img src="img/medicare-feature-rankings.png" loading="lazy"
+             alt="Heatmap ranking fifteen features across three methods — OLS, XGBoost, and SHAP. Fee-for-service enrollment ranks first in all three columns.">
+      </a>
+      <figcaption>
+        Feature rankings compared across OLS, XGBoost, and SHAP. Fee-for-service
+        enrollment ranks first under all three methods — agreement across very
+        different approaches is what makes the finding credible.
+      </figcaption>
+    </figure>
     <div class="tags">
       <span class="tag">Python</span>
       <span class="tag">PCA</span>
@@ -409,7 +457,7 @@
       <span class="tag">SHAP</span>
       <span class="tag">statsmodels</span>
     </div>
-  </a>
+  </article>
 </section>
 
 <section class="wrap" id="toolkit">
