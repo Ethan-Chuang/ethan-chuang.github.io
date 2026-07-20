@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ethan Chuang — Statistics & Data Science</title>
+<meta name="description" content="Ethan Chuang — statistics and data science student at UC Santa Barbara, working on machine learning and predictive modeling.">
+
+<meta property="og:title" content="Ethan Chuang — Statistics & Data Science">
+<meta property="og:description" content="Statistics and data science student at UC Santa Barbara, working on machine learning and predictive modeling.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ethan-chuang.github.io/">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+
+<style>
+  :root {
+    --bg: #fdfdfc;
+    --fg: #1a1a18;
+    --muted: #6b6b66;
+    --line: #e4e4e0;
+    --accent: #1f5c4d;
+    --card: #ffffff;
+    --measure: 42rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131313;
+      --fg: #e8e8e4;
+      --muted: #9a9a94;
+      --line: #2a2a28;
+      --accent: #6fcfb3;
+      --card: #191918;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  /* ---------- header ---------- */
+
+  header {
+    padding: 6rem 0 3.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 1rem;
+    font-weight: 600;
+  }
+
+  .lede {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin: 0 0 1.75rem;
+    max-width: 34rem;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  /* ---------- sections ---------- */
+
+  section { padding: 3rem 0; border-top: 1px solid var(--line); }
+
+  h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-weight: 600;
+    margin: 0 0 1.75rem;
+  }
+
+  p { margin: 0 0 1.1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ---------- projects ---------- */
+
+  .project {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .project:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .project h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .project p {
+    margin: 0 0 1rem;
+    color: var(--muted);
+    font-size: 0.97rem;
+  }
+
+  .result {
+    font-size: 0.9rem;
+    color: var(--fg);
+    padding: 0.6rem 0.85rem;
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 1rem !important;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-size: 0.78rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 0.15rem 0.6rem;
+  }
+
+  /* ---------- toolkit ---------- */
+
+  .toolkit {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* ---------- experience ---------- */
+
+  .role { margin-bottom: 2rem; }
+  .role:last-child { margin-bottom: 0; }
+
+  .role-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .role h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .date {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .org {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin: 0 0 0.6rem;
+  }
+
+  .role ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+  .role li { margin-bottom: 0.35rem; }
+  .role li:last-child { margin-bottom: 0; }
+
+  /* ---------- education ---------- */
+
+  .edu-meta {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin: 0.5rem 0 0;
+  }
+
+  .toolkit h3 {
+    font-size: 0.9rem;
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+  }
+
+  .toolkit p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    line-height: 1.8;
+  }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    padding: 3rem 0 4rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  footer .links { margin-bottom: 1.25rem; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <h1>Ethan Chuang</h1>
+  <p class="lede">
+    Statistics and data science at UC Santa Barbara. I build predictive models on
+    real-world data — usually starting from a question I actually care about, and
+    ending with something that answers it.
+  </p>
+  <nav class="links">
+    <a href="https://github.com/Ethan-Chuang">GitHub</a>
+    <a href="https://www.linkedin.com/in/chuangethan/">LinkedIn</a>
+    <a href="https://drive.google.com/file/d/1WBomKmvofMdEBiHuWwCTwBAUzgEYaEJq/view?usp=sharing">Résumé</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="wrap">
+  <h2>About</h2>
+  <p>
+    I'm a statistics and data science major at the University of California,
+    Santa Barbara, focused on machine learning and predictive modeling. I've
+    spent the last two years as a data science intern building models that
+    people actually use — pricing recommendations in live entertainment, and
+    property valuation in real estate.
+  </p>
+  <p>
+    Most of my work follows the same shape: take a messy real dataset, do the
+    unglamorous cleaning and feature engineering, compare models honestly on a
+    holdout that reflects how the model would actually be used, and then spend
+    real effort on <em>why</em> the model predicts what it does — not just how
+    well it scores.
+  </p>
+</section>
+
+<section class="wrap">
+  <h2>Experience</h2>
+
+  <div class="role">
+    <div class="role-head">
+      <h3>Data Science Intern</h3>
+      <span class="date">May 2026 — Present</span>
+    </div>
+    <p class="org">A Round Entertainment · Remote</p>
+    <ul>
+      <li>Built a two-stage revenue prediction model in Python and XGBoost,
+        pairing demand forecasting with price optimization to generate
+        revenue-maximizing ticket recommendations across 1,800+ artists.</li>
+      <li>Deployed an interactive Streamlit dashboard so the team can enter an
+        artist, venue, and date and get real-time pricing recommendations with
+        supporting visualizations.</li>
+      <li>Integrated external APIs to enrich the training set with artist
+        popularity metrics, expanding the feature set for demand prediction.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-head">
+      <h3>Data Science Intern</h3>
+      <span class="date">Sep — Dec 2025</span>
+    </div>
+    <p class="org">IDX Exchange · Remote</p>
+    <ul>
+      <li>Developed a machine learning pipeline over 250,000+ homes,
+        preprocessing and modeling property data into actionable pricing
+        insights for buyers.</li>
+      <li>Built housing price predictions to help real estate professionals make
+        data-backed decisions in a live market.</li>
+      <li>Worked with a team of six to troubleshoot technical problems, share ML
+        techniques, and tune model performance.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-head">
+      <h3>Data Collection Analyst</h3>
+      <span class="date">Nov — Dec 2024</span>
+    </div>
+    <p class="org">Humanity Unleashed · Open-source AI safety project</p>
+    <ul>
+      <li>Prepared large-scale time-series datasets supporting AI training,
+        visualization, and performance assessment for public-benefit research.</li>
+      <li>Supported model development aimed at simplifying complex public policy
+        information for a general audience.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Projects</h2>
+
+  <a class="project" href="https://github.com/Ethan-Chuang/CA-house-price-prediction">
+    <h3>California Home Price Prediction</h3>
+    <p>
+      Predicts single-family home sale prices from roughly a year of California
+      MLS sold-listing data. Heavy feature engineering — price per bedroom, lot
+      utilization, property age, ZIP-level averages, an amenity score — and a
+      time-based split that trains on earlier months and tests on the most
+      recent one, so the evaluation mirrors real forecasting.
+    </p>
+    <p class="result">
+      Gradient Boosting reached <strong>R² 0.88</strong> with a median error
+      under <strong>8%</strong> — half of predicted prices land within 8% of the
+      true sale price.
+    </p>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">scikit-learn</span>
+      <span class="tag">XGBoost</span>
+      <span class="tag">LightGBM</span>
+      <span class="tag">CatBoost</span>
+    </div>
+  </a>
+
+  <a class="project" href="https://github.com/Ethan-Chuang/Medicare-Payment-Prediction">
+    <h3>Medicare Utilization Analysis</h3>
+    <p>
+      Inferential machine learning on public CMS Medicare Current Beneficiary
+      Survey data. Condenses ~577 raw survey columns into a single continuous
+      <em>utilization score</em> via PCA, predicts it with nine cross-validated
+      regression models, then uses SHAP to explain which factors move the score
+      and by how much.
+    </p>
+    <p class="result">
+      The top three predictors were <strong>enrollment type, specialist access,
+      and age</strong> — suggesting Medicare care strategies should be tailored
+      by plan type rather than applied uniformly.
+    </p>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">PCA</span>
+      <span class="tag">XGBoost</span>
+      <span class="tag">SHAP</span>
+      <span class="tag">statsmodels</span>
+    </div>
+  </a>
+</section>
+
+<section class="wrap">
+  <h2>Toolkit</h2>
+  <div class="toolkit">
+    <div>
+      <h3>Languages</h3>
+      <p>Python<br>R<br>SQL<br>Java</p>
+    </div>
+    <div>
+      <h3>Modeling</h3>
+      <p>scikit-learn<br>XGBoost<br>LightGBM<br>CatBoost<br>statsmodels</p>
+    </div>
+    <div>
+      <h3>Data &amp; viz</h3>
+      <p>pandas<br>NumPy<br>Matplotlib<br>seaborn<br>SHAP</p>
+    </div>
+    <div>
+      <h3>Tools</h3>
+      <p>Streamlit<br>Git<br>Hugging Face<br>RStudio<br>VS Code</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Education</h2>
+  <div class="role">
+    <div class="role-head">
+      <h3>University of California, Santa Barbara</h3>
+      <span class="date">2024 — 2028</span>
+    </div>
+    <p class="org">B.S. Statistics and Data Science · GPA 3.83</p>
+    <ul>
+      <li><strong>Coursework:</strong> Statistical Machine Learning, Regression
+        Analysis, Advanced Probability and Statistics, Programming Fundamentals
+        in R, SQL, and Python.</li>
+      <li><strong>Dean's Honors List:</strong> Fall 2024; Winter and Fall 2025;
+        Winter and Spring 2026.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <nav class="links">
+    <a href="https://github.com/Ethan-Chuang">GitHub</a>
+    <a href="https://www.linkedin.com/in/chuangethan/">LinkedIn</a>
+  </nav>
+  <p>© 2026 Ethan Chuang</p>
+</footer>
+
+</body>
+</html>
