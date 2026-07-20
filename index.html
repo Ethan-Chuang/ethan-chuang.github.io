@@ -261,6 +261,28 @@
   .role li { margin-bottom: 0.35rem; }
   .role li:last-child { margin-bottom: 0; }
 
+  /* ---------- links ---------- */
+
+  .linklist { list-style: none; margin: 0; padding: 0; }
+
+  .linklist li {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .linklist li:last-child { border-bottom: none; }
+
+  .linklist a { font-size: 1rem; }
+
+  .linklist span {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-left: 0.4rem;
+  }
+
+  @media (max-width: 34rem) {
+    .linklist span { display: block; margin-left: 0; }
+  }
+
   /* ---------- toolkit ---------- */
 
   .toolkit {
@@ -295,10 +317,11 @@
 <nav class="nav">
   <div class="wrap nav-inner">
     <a href="#about">About</a>
+    <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#toolkit">Toolkit</a>
-    <a href="#education">Education</a>
+    <a href="#links">Links</a>
   </div>
 </nav>
 
@@ -336,55 +359,78 @@
   </p>
 </section>
 
+<section class="wrap" id="education">
+  <h2>Education</h2>
+  <div class="role">
+    <div class="role-head">
+      <h3>University of California, Santa Barbara</h3>
+      <span class="date">Sep 2024 — July 2028</span>
+    </div>
+    <p class="org">B.S. Statistics and Data Science · GPA 3.83</p>
+    <ul>
+      <li><strong>Relevant coursework:</strong> Programming Fundamentals in R,
+        SQL, and Python; Advanced Probability and Statistics; Regression
+        Analysis; Statistical Machine Learning.</li>
+      <li><strong>Dean's Honors List:</strong> Fall 2024; Winter and Fall 2025;
+        Winter and Spring 2026.</li>
+    </ul>
+  </div>
+</section>
+
 <section class="wrap" id="experience">
   <h2>Experience</h2>
 
   <div class="role">
     <div class="role-head">
       <h3>Data Science Intern</h3>
-      <span class="date">May 2026 — Present</span>
+      <span class="date">May 2026 — Current</span>
     </div>
-    <p class="org">A Round Entertainment · Remote</p>
+    <p class="org">A Round Entertainment · AI-driven entertainment analytics platform · New York, NY (Remote)</p>
     <ul>
-      <li>Built a two-stage revenue prediction model in Python and XGBoost,
-        pairing demand forecasting with price optimization to generate
-        revenue-maximizing ticket recommendations across 1,800+ artists.</li>
-      <li>Deployed an interactive Streamlit dashboard so the team can enter an
-        artist, venue, and date and get real-time pricing recommendations with
-        supporting visualizations.</li>
-      <li>Integrated external APIs to enrich the training set with artist
-        popularity metrics, expanding the feature set for demand prediction.</li>
+      <li>Developed a two-stage concert revenue prediction model using Python and
+        XGBoost, combining demand forecasting with price optimization to generate
+        revenue-maximizing ticket recommendations across 1,800+ artists</li>
+      <li>Built and deployed an interactive Streamlit dashboard to Streamlit
+        Cloud, enabling team members to input an artist, venue, and date and
+        receive real-time pricing recommendations with supporting
+        visualizations</li>
+      <li>Integrated external APIs including the Wikipedia API and Google SERP
+        API to enrich the training dataset with artist popularity metrics,
+        expanding the model's feature set for improved demand prediction</li>
     </ul>
   </div>
 
   <div class="role">
     <div class="role-head">
       <h3>Data Science Intern</h3>
-      <span class="date">Sep — Dec 2025</span>
+      <span class="date">Sep 2025 — Dec 2025</span>
     </div>
-    <p class="org">IDX Exchange · Remote</p>
+    <p class="org">IDX Exchange · AI-driven real estate data and website platform · Boise, ID (Remote)</p>
     <ul>
-      <li>Developed a machine learning pipeline over 250,000+ homes,
-        preprocessing and modeling property data into actionable pricing
-        insights for buyers.</li>
-      <li>Built housing price predictions to help real estate professionals make
-        data-backed decisions in a live market.</li>
-      <li>Worked with a team of six to troubleshoot technical problems, share ML
-        techniques, and tune model performance.</li>
+      <li>Developed a machine learning pipeline involving over 250,000 houses,
+        preprocessing and modeling property data to generate actionable pricing
+        insights in buying homes</li>
+      <li>Predicted housing prices for real estate professionals to make AI-based
+        decisions and engage with the market</li>
+      <li>Collaborated with a team of 6+ people to troubleshoot technical
+        challenges, share knowledge on ML techniques, and collectively optimize
+        model performance</li>
     </ul>
   </div>
 
   <div class="role">
     <div class="role-head">
       <h3>Data Collection Analyst</h3>
-      <span class="date">Nov — Dec 2024</span>
+      <span class="date">Nov 2024 — Dec 2024</span>
     </div>
-    <p class="org">Humanity Unleashed · Open-source AI safety project</p>
+    <p class="org">Humanity Unleashed · Open-source project with mission to create safe AI · Chapel Hill, NC</p>
     <ul>
-      <li>Prepared large-scale time-series datasets supporting AI training,
-        visualization, and performance assessment for public-benefit research.</li>
-      <li>Supported model development aimed at simplifying complex public policy
-        information for a general audience.</li>
+      <li>Prepared large-scale time-series data sets, to support AI training,
+        visualization, and performance assessment for public benefit research
+        initiatives</li>
+      <li>Supported AI model development to simplify complex public policy
+        information, enabling broader public understanding of how policy
+        decisions impact individuals and communities</li>
     </ul>
   </div>
 </section>
@@ -482,22 +528,26 @@
   </div>
 </section>
 
-<section class="wrap" id="education">
-  <h2>Education</h2>
-  <div class="role">
-    <div class="role-head">
-      <h3>University of California, Santa Barbara</h3>
-      <span class="date">2024 — 2028</span>
-    </div>
-    <p class="org">B.S. Statistics and Data Science · GPA 3.83</p>
-    <ul>
-      <li><strong>Coursework:</strong> Statistical Machine Learning, Regression
-        Analysis, Advanced Probability and Statistics, Programming Fundamentals
-        in R, SQL, and Python.</li>
-      <li><strong>Dean's Honors List:</strong> Fall 2024; Winter and Fall 2025;
-        Winter and Spring 2026.</li>
-    </ul>
-  </div>
+<section class="wrap" id="links">
+  <h2>Links</h2>
+  <ul class="linklist">
+    <li>
+      <a href="https://github.com/Ethan-Chuang">GitHub</a>
+      <span>— all my public repositories</span>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/chuangethan/">LinkedIn</a>
+      <span>— background, and the best way to reach me</span>
+    </li>
+    <li>
+      <a href="https://github.com/Ethan-Chuang/CA-house-price-prediction">California Home Price Prediction</a>
+      <span>— project repository</span>
+    </li>
+    <li>
+      <a href="https://github.com/Ethan-Chuang/Medicare-Payment-Prediction">Medicare Utilization Analysis</a>
+      <span>— project repository</span>
+    </li>
+  </ul>
 </section>
 
 </main>
