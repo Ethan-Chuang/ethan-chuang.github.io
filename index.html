@@ -3,41 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ethan Chuang — Statistics & Data Science</title>
-<meta name="description" content="Ethan Chuang — statistics and data science student at UC Santa Barbara, working on machine learning and predictive modeling.">
+<title>Ethan Chuang — Data Science at UC Santa Barbara</title>
+<meta name="description" content="Ethan Chuang — data science at UC Santa Barbara. Machine learning and predictive modeling.">
 
-<meta property="og:title" content="Ethan Chuang — Statistics & Data Science">
-<meta property="og:description" content="Statistics and data science student at UC Santa Barbara, working on machine learning and predictive modeling.">
+<meta property="og:title" content="Ethan Chuang — Data Science at UC Santa Barbara">
+<meta property="og:description" content="Data science at UC Santa Barbara. Machine learning and predictive modeling.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ethan-chuang.github.io/">
+<meta property="og:image" content="https://ethan-chuang.github.io/headshot.jpg">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 
 <style>
   :root {
-    --bg: #fdfdfc;
-    --fg: #1a1a18;
-    --muted: #6b6b66;
-    --line: #e4e4e0;
-    --accent: #1f5c4d;
-    --card: #ffffff;
-    --measure: 42rem;
-  }
+    color-scheme: light;
+    --bg: #ffffff;
+    --fg: #111111;
+    --muted: #555555;
+    --line: #dddddd;
+    --accent: #14532d;
+    --card: #fafafa;
+    --measure: 46rem;
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #131313;
-      --fg: #e8e8e4;
-      --muted: #9a9a94;
-      --line: #2a2a28;
-      --accent: #6fcfb3;
-      --card: #191918;
-    }
+    --serif: "Iowan Old Style", Charter, "Bitstream Charter", Cambria, Georgia,
+             "Times New Roman", Times, serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     * { animation: none !important; transition: none !important; }
@@ -47,9 +41,9 @@
     margin: 0;
     background: var(--bg);
     color: var(--fg);
-    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.68;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -62,28 +56,72 @@
     padding-right: 1.5rem;
   }
 
-  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
-  a:hover { text-decoration-thickness: 2px; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+
+  /* ---------- nav ---------- */
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .nav a:hover { color: var(--fg); border-bottom-color: var(--accent); }
 
   /* ---------- header ---------- */
 
-  header {
-    padding: 6rem 0 3.5rem;
+  header { padding: 4rem 0 3rem; }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
   }
 
   h1 {
-    font-size: clamp(2rem, 6vw, 2.75rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin: 0 0 1rem;
+    font-size: clamp(2.1rem, 6vw, 2.9rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.4rem;
     font-weight: 600;
   }
 
-  .lede {
-    font-size: 1.1rem;
+  .title {
+    font-size: 1.05rem;
     color: var(--muted);
-    margin: 0 0 1.75rem;
-    max-width: 34rem;
+    margin: 0 0 1.5rem;
+    font-style: italic;
+  }
+
+  .headshot {
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
   }
 
   .links {
@@ -93,6 +131,11 @@
     font-size: 0.95rem;
   }
 
+  @media (max-width: 34rem) {
+    .header-inner { flex-direction: column-reverse; align-items: flex-start; }
+    .headshot { width: 104px; height: 104px; }
+  }
+
   /* ---------- sections ---------- */
 
   section { padding: 3rem 0; border-top: 1px solid var(--line); }
@@ -100,10 +143,11 @@
   h2 {
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.11em;
     color: var(--muted);
     font-weight: 600;
     margin: 0 0 1.75rem;
+    font-family: var(--serif);
   }
 
   p { margin: 0 0 1.1rem; }
@@ -115,46 +159,38 @@
     display: block;
     background: var(--card);
     border: 1px solid var(--line);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1.25rem;
     text-decoration: none;
     color: inherit;
     transition: border-color 0.15s ease, transform 0.15s ease;
   }
-  .project:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
+  .project:hover { border-color: var(--accent); transform: translateY(-2px); }
 
   .project h3 {
     margin: 0 0 0.5rem;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    letter-spacing: -0.01em;
   }
 
   .project p {
     margin: 0 0 1rem;
     color: var(--muted);
-    font-size: 0.97rem;
+    font-size: 1rem;
   }
 
   .result {
-    font-size: 0.9rem;
-    color: var(--fg);
-    padding: 0.6rem 0.85rem;
-    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    font-size: 0.95rem;
+    color: var(--fg) !important;
+    padding: 0.6rem 0.9rem;
+    background: #f0f5f1;
     border-left: 2px solid var(--accent);
     border-radius: 0 4px 4px 0;
     margin-bottom: 1rem !important;
   }
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
   .tag {
     font-size: 0.78rem;
@@ -165,15 +201,7 @@
     padding: 0.15rem 0.6rem;
   }
 
-  /* ---------- toolkit ---------- */
-
-  .toolkit {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
-    gap: 1.5rem;
-  }
-
-  /* ---------- experience ---------- */
+  /* ---------- experience / education ---------- */
 
   .role { margin-bottom: 2rem; }
   .role:last-child { margin-bottom: 0; }
@@ -187,53 +215,35 @@
     margin-bottom: 0.15rem;
   }
 
-  .role h3 {
-    margin: 0;
-    font-size: 1.05rem;
-    font-weight: 600;
-  }
+  .role h3 { margin: 0; font-size: 1.1rem; font-weight: 600; }
 
   .date {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: var(--muted);
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
   }
 
-  .org {
-    font-size: 0.92rem;
-    color: var(--muted);
-    margin: 0 0 0.6rem;
-  }
+  .org { font-size: 0.95rem; color: var(--muted); margin: 0 0 0.6rem; font-style: italic; }
 
-  .role ul {
-    margin: 0;
-    padding-left: 1.1rem;
-    font-size: 0.95rem;
-    color: var(--muted);
-  }
+  .role ul { margin: 0; padding-left: 1.1rem; font-size: 0.98rem; color: var(--muted); }
   .role li { margin-bottom: 0.35rem; }
   .role li:last-child { margin-bottom: 0; }
 
-  /* ---------- education ---------- */
+  /* ---------- toolkit ---------- */
 
-  .edu-meta {
-    font-size: 0.92rem;
-    color: var(--muted);
-    margin: 0.5rem 0 0;
+  .toolkit {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 1.5rem;
   }
 
-  .toolkit h3 {
-    font-size: 0.9rem;
-    margin: 0 0 0.4rem;
-    font-weight: 600;
-  }
+  .toolkit h3 { font-size: 0.95rem; margin: 0 0 0.4rem; font-weight: 600; }
 
   .toolkit p {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     color: var(--muted);
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     line-height: 1.8;
   }
 
@@ -251,23 +261,34 @@
 </head>
 <body>
 
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#toolkit">Toolkit</a>
+    <a href="#education">Education</a>
+  </div>
+</nav>
+
 <header class="wrap">
-  <h1>Ethan Chuang</h1>
-  <p class="lede">
-    Statistics and data science at UC Santa Barbara. I build predictive models on
-    real-world data — usually starting from a question I actually care about, and
-    ending with something that answers it.
-  </p>
-  <nav class="links">
-    <a href="https://github.com/Ethan-Chuang">GitHub</a>
-    <a href="https://www.linkedin.com/in/chuangethan/">LinkedIn</a>
-    <a href="https://drive.google.com/file/d/1WBomKmvofMdEBiHuWwCTwBAUzgEYaEJq/view?usp=sharing">Résumé</a>
-  </nav>
+  <div class="header-inner">
+    <div>
+      <h1>Ethan Chuang</h1>
+      <p class="title">Data Science at UC Santa Barbara</p>
+      <nav class="links">
+        <a href="https://github.com/Ethan-Chuang">GitHub</a>
+        <a href="https://www.linkedin.com/in/chuangethan/">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1WBomKmvofMdEBiHuWwCTwBAUzgEYaEJq/view?usp=sharing">Résumé</a>
+      </nav>
+    </div>
+    <img class="headshot" src="headshot.jpg" alt="Ethan Chuang" width="440" height="440">
+  </div>
 </header>
 
 <main>
 
-<section class="wrap">
+<section class="wrap" id="about">
   <h2>About</h2>
   <p>
     I'm a statistics and data science major at the University of California,
@@ -285,7 +306,7 @@
   </p>
 </section>
 
-<section class="wrap">
+<section class="wrap" id="experience">
   <h2>Experience</h2>
 
   <div class="role">
@@ -338,7 +359,7 @@
   </div>
 </section>
 
-<section class="wrap">
+<section class="wrap" id="projects">
   <h2>Projects</h2>
 
   <a class="project" href="https://github.com/Ethan-Chuang/CA-house-price-prediction">
@@ -388,7 +409,7 @@
   </a>
 </section>
 
-<section class="wrap">
+<section class="wrap" id="toolkit">
   <h2>Toolkit</h2>
   <div class="toolkit">
     <div>
@@ -410,7 +431,7 @@
   </div>
 </section>
 
-<section class="wrap">
+<section class="wrap" id="education">
   <h2>Education</h2>
   <div class="role">
     <div class="role-head">
