@@ -134,6 +134,10 @@
   @media (max-width: 34rem) {
     .header-inner { flex-direction: column-reverse; align-items: flex-start; }
     .headshot { width: 104px; height: 104px; }
+    /* The nav wraps to two rows at this width, so anchor targets need more
+       offset to clear it. */
+    html { scroll-padding-top: 7.5rem; }
+    .nav-inner { gap: 1rem 1.1rem; }
   }
 
   /* ---------- sections ---------- */
